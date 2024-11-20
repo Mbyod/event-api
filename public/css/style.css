@@ -1,0 +1,57 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  /* border: none; */
+}
+
+/* header */
+header {
+  margin-bottom: 50px;
+}
+
+.content {
+  width: 1200px;
+  margin: auto;
+}
+
+.event-name,
+.date-start,
+.date-end,
+.period,
+.weight,
+.categories,
+.comment {
+  display: flex;
+  flex-direction: column;
+}
+/* form-container */
+.form-container {
+  border: 1px solid rgb(80, 80, 80);
+  border-radius: 20px;
+  box-shadow: 10px 10px 33px -4px rgba(0, 0, 0, 0.75);
+}
+
+/* form-content */
+.form-content {
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+/* date-container */
+.date-container {
+  display: flex;
+  column-gap: 20px;
+}
+
+/* period */
+.period {
+  width: 100px;
+}
+
+/* btn-send */
+.btn-send {
+  justify-content: flex-start;
+}

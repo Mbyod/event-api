@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <div class="content">
+        <div class="form-container">
+          <form action="" class="from-post">
+            <div class="form-content">
+              <div class="event-name">
+                <label for="event-name">Событие</label>
+                <input type="text" name="event-name" id="event-name" />
+              </div>
+
+              <div class="date-container">
+                <div class="date-start">
+                  <label for="date-start">Дата начала</label>
+                  <input type="date" name="date-start" id="date-start" />
+                </div>
+
+                <div class="date-end">
+                  <label for="date-end">Дата окончания</label>
+                  <input type="date" name="date-end" id="date-end" />
+                </div>
+
+                <div class="period">
+                  <label for="period">Срок дествия</label>
+                  <input type="number" name="period" id="period" min="1" />
+                </div>
+
+                <div class="weight">
+                  <label for="weight">Сила влияния</label>
+                  <select name="weight" id="weight">
+                    <option value="low">Низкая</option>
+                    <option value="medium">Средняя</option>
+                    <option value="high">Высокая</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="categories">
+                <label for="categories">Категории</label>
+                <select name="categories" id="categories">
+                  <option value="auto">Автотовары</option>
+                  <option value="moto">Мототехника</option>
+                  <option value="heaters">Водонагреватели</option>
+                  <option value="light">Освещение</option>
+                  <option value="dishes">Посуда</option>
+                  <option value="computers">Компьютерная техника</option>
+                  <option value="beauty_and_healf">Красота и здоровье</option>
+                </select>
+              </div>
+
+              <div class="comment">
+                <label for="comment">Комментарий</label>
+                <textarea name="comment" id="comment"></textarea>
+              </div>
+              <div class="btn-sumbit">
+                <button class="btn-send">Отправить</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+    <script src="./js/index.js"></script>
+  </body>
+</html>

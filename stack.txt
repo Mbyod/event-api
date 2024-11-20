@@ -1,0 +1,4 @@
+Node.js
+Express.js npm i express
+Шаблонизатор npm i ejs
+Модуль для работы с бд npm install mssql

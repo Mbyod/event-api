@@ -1,0 +1,14 @@
+{
+  "name": "eventapi",
+  "version": "0.0.1",
+  "description": "api",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Mbyod",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "mssql": "^11.0.1"
+  }
+}
