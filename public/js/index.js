@@ -53,3 +53,12 @@ period.addEventListener("change", () => {
     }`;
   }
 });
+
+// // работа с формой отправки собитый 
+// const eventForm = document.querySelector('.form-post');
+// eventForm.addEventListener('submit',(event)=>{
+//   event.preventDefault();
+//   const form = document.querySelector('.form-post').elements;
+
+//   console.log(form);
+// })
