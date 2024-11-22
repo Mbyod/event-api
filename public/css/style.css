@@ -24,11 +24,47 @@ header {
   display: flex;
   flex-direction: column;
 }
+
+
+/* content */
+.content{
+  /* min-height: calc(100vh - 100px); */
+
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+
+h1{
+  text-align: center;
+  padding: 15px;
+}
+
+/* header */
+header{
+  background-color:rgb(21, 72, 137) ;
+  margin: 0;
+
+  margin-bottom: 50px;
+}
+
+/* logo */
+.logo{
+  height: 70px;
+  padding: 10px;
+}
+
 /* form-container */
 .form-container {
+  width: 70%;
+  margin: 0 auto;
   border: 1px solid rgb(80, 80, 80);
   border-radius: 20px;
   box-shadow: 10px 10px 33px -4px rgba(0, 0, 0, 0.75);
+
 }
 
 /* form-content */
@@ -44,6 +80,7 @@ header {
 .date-container {
   display: flex;
   column-gap: 20px;
+  flex-wrap: wrap;
 }
 
 /* period */
@@ -51,7 +88,13 @@ header {
   width: 100px;
 }
 
+/* text-area */
+#comment{
+  height: 180px;
+}
 /* btn-send */
 .btn-send {
-  justify-content: flex-start;
+  height: 35px;
+  padding: 5px;
+  
 }
