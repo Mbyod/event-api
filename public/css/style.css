@@ -1,3 +1,7 @@
+:root {
+  --main-blue: rgb(21, 72, 137);
+}
+
 * {
   padding: 0px;
   margin: 0px;
@@ -45,7 +49,7 @@ h1{
 
 /* header */
 header{
-  background-color:rgb(21, 72, 137) ;
+  background-color:var(--main-blue);
   margin: 0;
 
   margin-bottom: 50px;
@@ -97,4 +101,29 @@ header{
   height: 35px;
   padding: 5px;
   
+}
+
+
+/* create-new-event */
+.create-new-event{
+  width: 100px;
+  color: black;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+
+  text-decoration: none;
+  text-align: center;
+
+  box-shadow: 10px 10px 33px -4px rgba(0, 0, 0, 0.75);
+  transition: opacity 0.2s ease-in;
+}
+
+.create-new-event:active {
+  position: relative;
+  top: 1px;
+}
+
+.create-new-event:hover {
+  opacity: 0.8;
 }
