@@ -2,6 +2,15 @@ const date_end = document.querySelector("#date-end");
 const date_start = document.getElementById("date-start");
 const period = document.querySelector("#period");
 
+
+let eventValue = '';
+let date_startValue = '';
+let date_endValue = '';
+let periodValue = '';
+let weightValue = '';
+let categoriesValue = [];
+
+
 // автозаполнение срока действия
 
 // date-end
@@ -11,8 +20,8 @@ date_end.addEventListener("change", () => {
 
   if (date_start.value != "" && dateStart < dateEnd) {
     period.value = (dateEnd - dateStart) / (1000 * 60 * 60 * 24);
-  } else if (date_start.value != "" && date_end.value != "") {
-    period.value = 1;
+  } else if(date_start.value === date_end.value){
+    period.value = 0;
   }
 });
 
@@ -23,27 +32,21 @@ date_start.addEventListener("change", () => {
 
   if (date_end.value != "" && dateStart < dateEnd) {
     period.value = (dateEnd - dateStart) / (1000 * 60 * 60 * 24);
-  } else if (date_start.value != "" && date_end.value != "") {
-    period.value = 1;
+  } else if (date_start.value === date_end.value ) {
+    period.value = 0;
   }
+
 });
 
 // period
 period.addEventListener("change", () => {
   const dateEnd = new Date(date_end.value);
   const dateStart = new Date(date_start.value);
-
-  if (date_end.value != "" && date_start.value != "" && dateStart < dateEnd) {
+  if (date_end.value != "" && date_start.value != "" && (dateStart < dateEnd)) {
     const newDate = new Date(
       dateStart.setDate(dateStart.getDate() + Number(period.value))
     );
 
-    // console.log(
-    //   newDate,
-    //   newDate.getFullYear(),
-    //   newDate.getMonth(),
-    //   newDate.getDate()
-    // );
     const year = newDate.getFullYear();
     const month = newDate.getMonth() + 1;
     const date = newDate.getDate();
@@ -51,14 +54,72 @@ period.addEventListener("change", () => {
     date_end.value = `${year}-${month / 10 >= 1 ? month : `0${month}`}-${
       date / 10 >= 1 ? date : `0${date}`
     }`;
-  }
+
+  } else if(date_end.value === date_start.value ){
+
+    const newDate = new Date(
+      dateStart.setDate(dateStart.getDate())
+    );
+    
+    const year = newDate.getFullYear();
+    const month = newDate.getMonth() + 1;
+    const date = newDate.getDate() + 1;
+
+    console.log(year, month, date);
+
+    date_end.value = `${year}-${month / 10 >= 1 ? month : `0${month}`}-${
+      date / 10 >= 1 ? date : `0${date}`
+    }`;
+  };
+
+  
 });
 
-// // работа с формой отправки собитый 
-// const eventForm = document.querySelector('.form-post');
-// eventForm.addEventListener('submit',(event)=>{
-//   event.preventDefault();
-//   const form = document.querySelector('.form-post').elements;
 
-//   console.log(form);
-// })
+
+// проверка на заполнение полей, если все верно - отображаем кнопку
+
+
+const formPost = document.querySelector('.form-post');
+formPost.addEventListener("change", ()=>{
+
+  const eventName = document.getElementById('event-name');
+  eventValue = eventName.value;
+   
+  const dateStartElement = document.getElementById("date-start");
+  date_startValue = dateStartElement.value;
+
+  const dateEndElement = document.getElementById("date-end");
+  date_endValue = dateEndElement.value;
+
+  const periodElement = document.getElementById("period");
+  periodValue = periodElement.value;
+
+  const weightElement = document.getElementById("weight");
+  weightValue = weightElement.value;
+
+  const categoriesElement = document.getElementById("categories");
+  categoriesValue = categoriesElement.value;
+
+  // проверяем заполнение обязательных полей и если все гуд - выводим кнопку
+  if ((eventValue && date_startValue && date_endValue && periodValue && weightValue && categoriesValue) && (date_endValue >= date_startValue) && periodValue >= 0){
+    let isExist = document.querySelector('.btn-send');
+    if (!isExist){
+      const btnElement = document.createElement('button');
+      btnElement.classList.add('btn-send');
+      btnElement.textContent = 'Отправить';
+
+      const submitDiv = document.querySelector('.btn-sumbit');
+      submitDiv.append(btnElement);
+    }
+  }
+  // если какое-то из полей стирается, убираем кнопку
+  if (!(eventValue && date_startValue && date_endValue && periodValue && weightValue && categoriesValue) || !(date_endValue >= date_startValue) || !(periodValue >= 0)){
+    let isExist = document.querySelector('.btn-send');
+    if (isExist){
+      isExist.remove();
+    }
+  }
+  // console.log(eventValue, date_startValue, date_endValue, periodValue, weightValue, categoriesValue);
+});
+

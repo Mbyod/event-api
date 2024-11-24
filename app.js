@@ -11,7 +11,6 @@ const sqlRequests = require("./helpers/sql_ requests")
 
 const app = express();
 const PORT = 3001;
-
 // парсер данных из post запроса
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
@@ -24,10 +23,11 @@ app.use(express.static("public"));
 
 
 
-
 // роуты (страницы)
  app.get("/", (req, res) => {
-  getCategoriesFromDB().then((data)=>{res.render("index.ejs", { categories: data})});
+  getCategoriesFromDB().then((data)=>{
+    res.render("index.ejs", { categories: data})
+  });
   // res.render("index.ejs", { categories: 'data'});
 });
 
@@ -35,23 +35,46 @@ app.use(express.static("public"));
 app.post('/', urlencodedParser, function (req, res) {
   if(!req.body) return res.sendStatus(400);
   console.log(req.body);
+
+  postEventFromDB(req.body).then(()=>{
   res.render("event_post_succsess.ejs", {data: req.body});
+
+  });
 })
 
 // асинхронная функция для получения категорий
 async function  getCategoriesFromDB() {
  let categoriesArray = []
   try {
-    let  pool = await  sql.connect(config);
+    let pool = await  sql.connect(config.categoriesBD);
     let  res = await  pool.request().query(sqlRequests.get_categoties);
+
     res.recordset.map((element)=>{ 
       categoriesArray.push(element._Description);   
    });
+    // закрываем соединение 
+    pool.close();
     return categoriesArray;
   }
   catch (error) {
     console.log(error);
   }
+}
+
+// асинхронная функция для загрузки данных в бд
+async function  postEventFromDB(event) {
+   try {
+    let pool = await  sql.connect(config.eventBD);
+    let  res = await  pool.request().query(`insert into Events values ('${event.event_name}','${event.date_start}','${event.date_end}',${event.period}, '${event.weight}','${event.categories}','${event.comment}')`);
+    console.log(res);
+    // закрываем соединение 
+    pool.close();
+  }
+  catch (error) {
+    console.log(error);
+  }
+  
+   
 }
 
 // function getCategoriesFromDB (){
