@@ -1,0 +1,332 @@
+:root {
+  --main-blue: rgb(21, 72, 137);
+  --text-color: #FFFAFA;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+a{
+  text-decoration:none;
+  color: var(--text-color);
+}
+
+ul{
+  list-style-type:  none;
+}
+
+/* Header / Navigation */
+header {
+  background-color:var(--main-blue);
+  margin: 0;
+
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+
+  font-size: 20px;
+  box-shadow: 0px 8px 21px 5px rgba(16, 70, 112, 0.37);
+}
+
+.logo{
+  height: 80px;
+  padding: 10px ;
+
+  /* border-radius: 30px; */
+}
+
+/* nav */
+.nav{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.nav-list{
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+  padding-right: 30px ;
+}
+
+.nav-list_link--active{
+  position: relative;
+}
+
+.nav-list_link--active::before{
+  position: absolute;
+  content: '';
+  height: 2px;
+  width: 100%;
+  top: 100%;
+  border-bottom: 1px solid var(--text-color);
+}
+
+
+
+
+.event-name,
+.date-start,
+.date-end,
+.period,
+.weight,
+.categories,
+.comment {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* content */
+.content{
+  /* min-height: calc(100vh - 100px); */
+  margin: auto;
+  width: 98%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+
+h1{
+  text-align: center;
+  padding: 15px;
+}
+
+
+
+/* form-container */
+.form-container {
+  width: 70%;
+  margin: 0 auto;
+  border: 1px solid rgb(80, 80, 80);
+  border-radius: 20px;
+  box-shadow: 10px 10px 33px -4px rgba(0, 0, 0, 0.75);
+
+}
+
+
+
+/* form-content */
+.form-content {
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+/* date-container */
+.date-container {
+  display: flex;
+  column-gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* period */
+.period {
+  width: 100px;
+}
+
+/* text-area */
+#comment{
+  height: 180px;
+}
+/* btn-send */
+.btn-send {
+  height: 35px;
+  padding: 5px;
+  
+}
+
+/* Delete Events Page */
+table{
+  border: 1px solid #000;
+  border-collapse: collapse;
+}
+
+
+thead tr, th{
+  border: 1px solid #000;
+}
+
+tbody tr, th{
+  text-align: center;
+  padding: 4px;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #DCDCDC;
+}
+tbody tr:nth-child(odd) {
+  background-color: #FFFFFF;
+}
+
+.th-event-name{
+  width: 20%;
+}
+
+.th-date{
+  width: 5%;
+}
+
+.th-period{
+  width: 4%;
+}
+
+.th-weight{
+  width: 6%;
+}
+
+.th-category{
+  width: 30%;
+}
+
+.th-comment{
+  width: 30%;
+}
+
+.table-row{
+  height: 30px;
+}
+.form-container--table{
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid rgb(80, 80, 80);
+  border-radius: 10px;
+  box-shadow: 10px 10px 33px -4px rgba(0, 0, 0, 0.75);
+}
+
+.custom-checkbox{
+  height: 11px;
+  width: 11px;
+  border: solid 1px gray;
+  border-radius: 2px;
+}
+
+.custom-checkbox--checked{
+  position: relative;
+
+}
+
+.custom-checkbox--checked::before{
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  content: '';
+
+  left: 10%;
+  top: 10%;
+
+  background-color: var(--main-blue);
+}
+
+/* delete btn */
+.pre-delete{
+  width: 70px;
+  border: 1px solid grey;
+  border-radius: 3px;
+
+  text-align: center;
+  align-items: center;
+
+  background-color: #f0eded;
+  cursor: pointer;
+
+  transition: opacity 0.2s ease-in;
+
+}
+
+.pre-delete:active {
+  position: relative;
+  top: 1px;
+}
+
+.pre-delete:hover {
+  opacity: 0.8;
+}
+
+
+.delete-btn{
+  width: 80px;
+}
+
+.confirm-delete--display-none, .pre-delete--display-none{
+  display: none;
+}
+
+
+/* Post Succsess page */
+
+.event-content{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  align-items: center;
+  text-align: center;
+
+  width: 50%;
+  margin: 0 auto;
+  
+  word-break: break-all
+}
+
+.create-new-event{
+  width: 100px;
+  color: black;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+
+  text-decoration: none;
+  text-align: center;
+
+  box-shadow: 10px 10px 33px -4px rgba(0, 0, 0, 0.75);
+  transition: opacity 0.2s ease-in;
+
+  margin-top: 15px;
+
+}
+
+.create-new-event:active {
+  position: relative;
+  top: 1px;
+}
+
+.create-new-event:hover {
+  opacity: 0.8;
+}
+
+
+.categories-list{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.custom-checkbox{
+  margin-right: 5px;
+}
+
+.custom-checkbox--container{
+  display: flex;
+}
+
+
+
+.categories-container{
+  border: 1px solid #707070;
+  border-radius: 5px;
+  height: 200px;
+
+  overflow: auto;
+  padding: 10px;
+  padding-top: 5px;
+
+  margin-bottom: 5px;
+}

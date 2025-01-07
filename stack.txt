@@ -1,0 +1,13 @@
+Node.js
+
+Express.js:
+npm i express
+
+Шаблонизатор:
+npm i ejs
+
+Модуль для работы с бд:
+npm install mssql
+
+Модуль для парсинга данных из форм для post запросов:
+npm i body-parser

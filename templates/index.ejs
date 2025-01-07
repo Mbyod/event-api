@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="/"><img src="./icons/revansh_logo.png" class="logo" alt="logo"></a>
+      <div class="nav">
+        <ul class="nav-list">
+          <li class="nav-list_link nav-list_link--active"><a href="/">Создать</a></li>
+          <li class="nav-list_link"><a href="/delete">События</a></li>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <div class="content">
+        <h1>Создание события</h1>
+
+        <div class="form-container">
+          <form action="" method="post" class="form-post">
+            <div class="form-content">
+              <div class="event-name">
+                <label for="event-name">Событие</label>
+                <input type="text" name="event_name" id="event-name" />
+              </div>
+
+              <div class="date-container">
+                <div class="date-start">
+                  <label for="date-start">Дата начала</label>
+                  <input type="date" name="date_start" id="date-start" />
+                </div>
+
+                <div class="date-end">
+                  <label for="date-end">Дата окончания</label>
+                  <input type="date" name="date_end" id="date-end" />
+                </div>
+
+                <div class="period">
+                  <label for="period">Период</label>
+                  <input type="number" name="period" id="period" min="0" />
+                </div>
+
+                <div class="weight">
+                  <label for="weight">Сила влияния</label>
+                  <select name="weight" id="weight">
+                    <option value="Низкая">Низкая</option>
+                    <option value="Средняя">Средняя</option>
+                    <option value="Высокая">Высокая</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="categories">
+
+                <div class="categories-container ">
+                  <div class="categories-list">
+                    <div class="custom-checkbox--container">
+                      <div class="custom-checkbox"></div>
+                      <p><b>Выбрать все</b></p>
+                    </div>  
+                  <%categories.forEach((category)=>{%>
+                  <div class="category-container">
+                    <input type="checkbox" value="<%=category%>" id="<%=category%>" name="category" class="checkbox">
+                    <label for="<%=category%>"><%=category%></label>
+                  </div>  
+                  <%});%>
+                </div>
+              </div>
+            </div>
+              <div class="comment">
+                <label for="comment">Комментарий</label>
+                <textarea name="comment" id="comment"></textarea>
+              </div>
+              <div class="btn-sumbit">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </main>
+    <footer></footer>
+    <script src="./js/index.js"></script>
+  </body>
+</html>

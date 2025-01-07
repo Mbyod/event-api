@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="/"><img src="./icons/revansh_logo.png" class="logo" alt="logo"></a>
+      <div class="nav">
+        <ul class="nav-list">
+          <li class="nav-list_link"><a href="/">Создать</a></li>
+          <li class="nav-list_link nav-list_link--active"><a href="/delete">События</a></li>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <div class="content">
+        <div class="form-container--table">
+          <form  action="" class="events-list-form" method="post">
+            <div class="form-content">
+              <table class="event-table">
+                  <thead>
+                  <tr>
+                      <th><div class="custom-checkbox"></div></th>
+                      <th class="th-event-name">Событие</th>
+                      <th class="th-date">Дата начала</th>
+                      <th class="th-date">Дата окончания</th>
+                      <th class="th-period">Период</th>
+                      <th class="th-weight">Сила влияния</th>
+                      <th class="th-category">Категории</th>
+                      <th class="th-comment">Комментарий</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                      <%events.forEach((event)=>{%>
+                          <tr class="table-row">
+                              <td><input type="checkbox" value="<%=event.EventId%>" id="<%=event.EventId%>" name="EventId" class="table-checkbox"></td>
+                              <td><%=event.EventName%></td>
+                              <td><%=event.DateStart%></td>
+                              <td><%=event.DateEnd%></td>
+                              <td><%=event.Period%></td>
+                              <td><%=event.Weight%></td>
+                              <td><%=event.Categories%></td>
+                              <td><%=event.Comment%></td>
+                          </tr>
+                      <%});%>
+                  </tbody>    
+                </table>
+                <div class="delete-btn-container">
+                  <div class="pre-delete"><p>Удалить</p></div>
+                  <div class="confirm-delete confirm-delete--display-none" >
+                    <button type="submit">Подтвердить</button>
+                    <button type="reset" class="reset-btn">Отменить</button>
+                  </div>
+                </div>
+                <!-- <button class="delete-btn">Удалить</button> -->
+            </div>  
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+    <script src="./js/deletePage.js"></script>
+  </body>
+</html>
